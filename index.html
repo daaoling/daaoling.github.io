@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -73,8 +73,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Tags:Unity-项目实践</p>
-<p>#制作平滑的关卡loading</p>
+        <p>#制作平滑的关卡loading</p>
 <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
 <pre><code>private IEnumerator StartLoading_4() {
     int displayProgress = 0;
@@ -106,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/08/关卡Loading/" data-id="ciqepzmbf0000ftozf5w0rc2f" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/07/08/关卡Loading/" data-id="ciqeq9yty0000gtozp4lrtew5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +140,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -162,7 +161,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 张洁勇<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
