@@ -6,20 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>all-categories - 人活着是场修行</title>
+    <title>Tag: FariGUI - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
     
     <meta name="description" content="生命不息，奋斗不止">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="all-categories">
-<meta property="og:url" content="http://yoursite.com/all-categories/index.html">
+<meta property="og:title" content="人活着是场修行">
+<meta property="og:url" content="http://yoursite.com/tags/FariGUI/index.html">
 <meta property="og:site_name" content="人活着是场修行">
 <meta property="og:description" content="生命不息，奋斗不止">
-<meta property="og:updated_time" content="2016-09-21T13:21:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="all-categories">
+<meta name="twitter:title" content="人活着是场修行">
 <meta name="twitter:description" content="生命不息，奋斗不止">
     
     
@@ -170,23 +169,118 @@
                         hasCoverMetaIn
                         ">
                 
-<div id="categories-archives" class="main-content-wrap">
-    <form id="filter-form" action="##">
-        <input name="category" type="text" class="form-control input--xlarge"
-               placeholder="Search category" autofocus="autofocus">
-    </form>
-    <h5 class="archive-result text-color-base text-xlarge"
-        data-message-zero="no category found"
-        data-message-one="1 cartegory found"
-        data-message-other="{n} categories found"></h5>
-
-        <section class="boxes">
-        
-    </section>
-    <section class="boxes">
-        
-    </section>
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/">
+                            FariGUI 屏幕分辨率研究笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-09-21T21:28:46+08:00">
+	
+		    Sep 21, 2016
+    	
+    </time>
+    
 </div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>设计分辨率1280 * 720 容器 一个 GImage 关联容器垂直中线，水平中线</p>
+<p><img src="../assets/images/farigui/屏幕分辨率适配1.png" alt="屏幕分辨率适配1"></p>
+<p>实际分辨率960 * 640</p>
+<p>ScreenMatchMode == MatchHeight</p>
+<pre><code>得出
+    GRoot.inst.width = 1080
+    GRoot.inst.height = 720 
+</code></pre><p>代码如下</p>
+<pre><code>void Start () 
+{
+    UIPackage.AddPackage(&quot;UI/test&quot;);
+
+    Application.targetFrameRate = 60;
+    GRoot.inst
+        .SetContentScaleFactor
+            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+
+    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
+    GRoot.inst.AddChild(mainView);
+}
+</code></pre><p>但是为什么实际运行的时候在这个分辨率的时候 方块没有垂直和水平中线呢？</p>
+<p><img src="assets/images/farigui/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
+<p>fix1:容器需要铺满</p>
+<pre><code>void Start () 
+{
+    UIPackage.AddPackage(&quot;UI/test&quot;);
+
+    Application.targetFrameRate = 60;
+    GRoot.inst
+        .SetContentScaleFactor
+            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+
+
+    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
+    mainView.SetSize(GRoot.inst.width, GRoot.inst.height);
+    mainView.AddRelation(GRoot.inst, RelationType.Size);
+    GRoot.inst.AddChild(mainView);
+
+    Debug.Log(
+        &quot;  GRoot.inst.width  &quot; + GRoot.inst.width
+        + &quot;  GRoot.inst.height &quot; + GRoot.inst.height);
+}
+</code></pre><p>fix2:后续思考</p>
+<p><img src="assets/images/farigui/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
+<p>其实我们一对比发现虽然居中没问题了 但是实际上这个GImage还是需要进行大小调整的</p>
+<p>参考之前项目里面NGUI的分辨率调整</p>
+<pre><code>int ManualWidth = 1280;
+int ManualHeight = 720;
+
+if (System.Convert.ToSingle(Screen.height) / Screen.width 
+  &gt; System.Convert.ToSingle(ManualHeight) / ManualWidth)
+    ManualHeight = 
+        Mathf.RoundToInt(System.Convert.ToSingle(ManualWidth) / Screen.width * Screen.height);
+
+
+GRoot.inst
+    .SetContentScaleFactor
+        (ManualWidth, ManualHeight, UIContentScaler.ScreenMatchMode.MatchHeight);
+</code></pre><p><img src="assets/images/farigui/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
