@@ -174,6 +174,77 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2016/09/20/Hexo_Blog/">
+                            Build Blog With Hexo On Github
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
+	
+		    Sep 20, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="Build-Blog-With-Hexo-On-Github"><a href="#Build-Blog-With-Hexo-On-Github" class="headerlink" title="Build Blog With Hexo On Github"></a>Build Blog With Hexo On Github</h1><h2 id="Install-node-js-with-nvm"><a href="#Install-node-js-with-nvm" class="headerlink" title="Install node.js with nvm"></a>Install node.js with nvm</h2><p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></p>
+<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+nvm install stable
+</code></pre><h2 id="Install-hero"><a href="#Install-hero" class="headerlink" title="Install hero"></a>Install hero</h2><p><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a><br><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">hexo docs</a></p>
+<pre><code>npm config set registry http://registry.cnpmjs.org 
+or
+npm install -g hexo-cli --registry=http://r.cnpmjs.org 
+
+$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+$ npm install
+</code></pre><p>常用命令</p>
+<pre><code>hexo clean
+
+hexo generate
+
+hexo deploy
+</code></pre><p>Deploy With Git</p>
+<pre><code>$ npm install hexo-deployer-git --save
+
+deploy:
+    type: git
+    repo: &lt;repository url&gt;
+    branch: [branch]
+</code></pre><p> _config.xml 严格的格式要求<br>注意 : 后面有个空格 </p>
+<p>博客地址: <a href="https://daaoling.github.io/" target="_blank" rel="external">https://daaoling.github.io/</a></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/all-archives/" target="_blank" rel="external">http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/all-archives/</a><br><a href="http://litten.github.io/tags/%E6%9D%82%E8%B0%88/" target="_blank" rel="external">http://litten.github.io/tags/%E6%9D%82%E8%B0%88/</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">Hexo常见问题解决方案</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22498474" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22498474</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/09/20/Hexo_Blog/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2016/09/20/help/">
                             help
                         </a>
@@ -350,6 +421,25 @@
                 <div class="media">
                     
                     <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/Hexo_Blog/">
+                            <h3 class="media-heading">Build Blog With Hexo On Github</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 20, 2016
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
                         <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
                             <h3 class="media-heading">help</h3>
                         </a>
@@ -392,7 +482,7 @@
                 data-message-zero="no post found"
                 data-message-one="1 post found"
                 data-message-other="{n} posts found">
-                2 posts found
+                3 posts found
             </p>
         </div>
     </div>
