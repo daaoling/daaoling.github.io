@@ -6,20 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>标签: FariGUI - 人活着是场修行</title>
+    <title>制作平滑的关卡loading - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
     
-    <meta name="description" content="生命不息，奋斗不止">
+    <meta name="description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="人活着是场修行">
-<meta property="og:url" content="http://yoursite.com/tags/FariGUI/index.html">
+<meta property="og:title" content="制作平滑的关卡loading">
+<meta property="og:url" content="http://yoursite.com/2016/07/08/关卡Loading/index.html">
 <meta property="og:site_name" content="人活着是场修行">
-<meta property="og:description" content="生命不息，奋斗不止">
+<meta property="og:description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
+<meta property="og:updated_time" content="2016-09-21T15:35:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人活着是场修行">
-<meta name="twitter:description" content="生命不息，奋斗不止">
+<meta name="twitter:title" content="制作平滑的关卡loading">
+<meta name="twitter:description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
     
     
         
@@ -48,7 +49,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">人活着是场修行</a>
@@ -72,7 +73,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -187,29 +188,24 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/">
-                            FariGUI 屏幕分辨率研究笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-21T21:28:46+08:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            制作平滑的关卡loading
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-07-08T21:47:49+08:00">
 	
-		    2016-09-21
+		    2016-07-08
     	
     </time>
     
@@ -221,94 +217,110 @@
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>设计分辨率1280 * 720 容器 一个 GImage 关联容器垂直中线，水平中线</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配1.png" alt="屏幕分辨率适配1"></p>
-<p>实际分辨率960 * 640</p>
-<p>ScreenMatchMode == MatchHeight</p>
-<pre><code>得出
-    GRoot.inst.width = 1080
-    GRoot.inst.height = 720 
-</code></pre><p>代码如下</p>
-<pre><code>void Start () 
-{
-    UIPackage.AddPackage(&quot;UI/test&quot;);
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
+<pre><code>private IEnumerator StartLoading_4() {
+    int displayProgress = 0;
+    int toProgress = 0;
+    AsyncOperation op = Application.LoadLevelAsync(1);
+    op.allowSceneActivation = false;
+    while(op.progress &lt; 0.9f) {
+        toProgress = (int)op.progress * 100;
+        while(displayProgress &lt; toProgress) {
+            ++displayProgress;
+            SetLoadingPercentage(displayProgress);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
-    Application.targetFrameRate = 60;
-    GRoot.inst
-        .SetContentScaleFactor
-            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
-
-    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
-    GRoot.inst.AddChild(mainView);
+    toProgress = 100;
+    while(displayProgress &lt; toProgress){
+        ++displayProgress;
+        SetLoadingPercentage(displayProgress);
+        yield return new WaitForEndOfFrame();
+    }
+    op.allowSceneActivation = true;
 }
-</code></pre><p>但是为什么实际运行的时候在这个分辨率的时候 方块没有垂直和水平中线呢？</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
-<p>fix1:容器需要铺满</p>
-<pre><code>void Start () 
-{
-    UIPackage.AddPackage(&quot;UI/test&quot;);
+</code></pre><p><a href="http://www.jjcat.me/2014/06/22/Unity3d%E4%B8%AD%E5%88%B6%E4%BD%9CLoading%E5%9C%BA%E6%99%AF%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Unity3d中制作Loading场景进度条所遇到的问题</a></p>
+<p><a href="http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html" target="_blank" rel="external">http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html</a></p>
+<p><a href="http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html" target="_blank" rel="external">http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html</a></p>
+<p><a href="http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html" target="_blank" rel="external">http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html</a></p>
 
-    Application.targetFrameRate = 60;
-    GRoot.inst
-        .SetContentScaleFactor
-            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
-
-
-    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
-    mainView.SetSize(GRoot.inst.width, GRoot.inst.height);
-    mainView.AddRelation(GRoot.inst, RelationType.Size);
-    GRoot.inst.AddChild(mainView);
-
-    Debug.Log(
-        &quot;  GRoot.inst.width  &quot; + GRoot.inst.width
-        + &quot;  GRoot.inst.height &quot; + GRoot.inst.height);
-}
-</code></pre><p>fix2:后续思考</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
-<p>其实我们一对比发现虽然居中没问题了 但是实际上这个GImage还是需要进行大小调整的</p>
-<p>参考之前项目里面NGUI的分辨率调整</p>
-<pre><code>int ManualWidth = 1280;
-int ManualHeight = 720;
-
-if (System.Convert.ToSingle(Screen.height) / Screen.width 
-  &gt; System.Convert.ToSingle(ManualHeight) / ManualWidth)
-    ManualHeight = 
-        Mathf.RoundToInt(System.Convert.ToSingle(ManualWidth) / Screen.width * Screen.height);
-
-
-GRoot.inst
-    .SetContentScaleFactor
-        (ManualWidth, ManualHeight, UIContentScaler.ScreenMatchMode.MatchHeight);
-</code></pre><p><img src="/assets/images/farigui/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Unity/">Unity</a>
+
+            </div>
         
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/09/Hexo_Blog/"  data-tooltip="Build Blog With Hexo On Github">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            
+        
+    </div>
+</article>
+
 
 
                 <footer id="footer" class="main-content-wrap">
@@ -318,6 +330,83 @@ GRoot.inst
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/09/Hexo_Blog/"  data-tooltip="Build Blog With Hexo On Github">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/08/关卡Loading/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         
@@ -451,6 +540,8 @@ GRoot.inst
         <!--SCRIPTS-->
 <script src="/assets/js/script-taaobz4ueybn54ikf9gtu3wlm8tpgzjkwfknygrtitquljbwokv26p56moto.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
 

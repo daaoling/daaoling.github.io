@@ -6,20 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>标签: FariGUI - 人活着是场修行</title>
+    <title>Build Blog With Hexo On Github - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
     
-    <meta name="description" content="生命不息，奋斗不止">
+    <meta name="description" content="Install node.js with nvmnvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+nvm install stable
+Install herohexohexo docs
+npm config set registry http://registry.cn">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="人活着是场修行">
-<meta property="og:url" content="http://yoursite.com/tags/FariGUI/index.html">
+<meta property="og:title" content="Build Blog With Hexo On Github">
+<meta property="og:url" content="http://yoursite.com/2016/07/09/Hexo_Blog/index.html">
 <meta property="og:site_name" content="人活着是场修行">
-<meta property="og:description" content="生命不息，奋斗不止">
+<meta property="og:description" content="Install node.js with nvmnvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+nvm install stable
+Install herohexohexo docs
+npm config set registry http://registry.cn">
+<meta property="og:updated_time" content="2016-09-21T15:35:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人活着是场修行">
-<meta name="twitter:description" content="生命不息，奋斗不止">
+<meta name="twitter:title" content="Build Blog With Hexo On Github">
+<meta name="twitter:description" content="Install node.js with nvmnvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+nvm install stable
+Install herohexohexo docs
+npm config set registry http://registry.cn">
     
     
         
@@ -48,7 +64,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">人活着是场修行</a>
@@ -72,7 +88,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -187,128 +203,141 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/">
-                            FariGUI 屏幕分辨率研究笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-21T21:28:46+08:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Build Blog With Hexo On Github
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-07-09T13:33:40+08:00">
 	
-		    2016-09-21
+		    2016-07-09
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/Unity/">Unity</a>
+    <a class="category-link" href="/categories/Hexo/">Hexo</a>
 
 
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>设计分辨率1280 * 720 容器 一个 GImage 关联容器垂直中线，水平中线</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配1.png" alt="屏幕分辨率适配1"></p>
-<p>实际分辨率960 * 640</p>
-<p>ScreenMatchMode == MatchHeight</p>
-<pre><code>得出
-    GRoot.inst.width = 1080
-    GRoot.inst.height = 720 
-</code></pre><p>代码如下</p>
-<pre><code>void Start () 
-{
-    UIPackage.AddPackage(&quot;UI/test&quot;);
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h2 id="Install-node-js-with-nvm"><a href="#Install-node-js-with-nvm" class="headerlink" title="Install node.js with nvm"></a>Install node.js with nvm</h2><p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></p>
+<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 
-    Application.targetFrameRate = 60;
-    GRoot.inst
-        .SetContentScaleFactor
-            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+nvm install stable
+</code></pre><h2 id="Install-hero"><a href="#Install-hero" class="headerlink" title="Install hero"></a>Install hero</h2><p><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a><br><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">hexo docs</a></p>
+<pre><code>npm config set registry http://registry.cnpmjs.org 
+or
+npm install -g hexo-cli --registry=http://r.cnpmjs.org 
 
-    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
-    GRoot.inst.AddChild(mainView);
-}
-</code></pre><p>但是为什么实际运行的时候在这个分辨率的时候 方块没有垂直和水平中线呢？</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
-<p>fix1:容器需要铺满</p>
-<pre><code>void Start () 
-{
-    UIPackage.AddPackage(&quot;UI/test&quot;);
+$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+$ npm install
+</code></pre><p>常用命令</p>
+<pre><code>hexo clean
 
-    Application.targetFrameRate = 60;
-    GRoot.inst
-        .SetContentScaleFactor
-            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+hexo generate
 
+hexo deploy
+</code></pre><p>Deploy With Git</p>
+<pre><code>$ npm install hexo-deployer-git --save
 
-    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
-    mainView.SetSize(GRoot.inst.width, GRoot.inst.height);
-    mainView.AddRelation(GRoot.inst, RelationType.Size);
-    GRoot.inst.AddChild(mainView);
+deploy:
+    type: git
+    repo: &lt;repository url&gt;
+    branch: [branch]
+</code></pre><p> _config.xml 严格的格式要求<br>注意 : 后面有个空格 </p>
+<p>博客地址: <a href="https://daaoling.github.io/" target="_blank" rel="external">https://daaoling.github.io/</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">Hexo常见问题解决方案</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22498474" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22498474</a></p>
 
-    Debug.Log(
-        &quot;  GRoot.inst.width  &quot; + GRoot.inst.width
-        + &quot;  GRoot.inst.height &quot; + GRoot.inst.height);
-}
-</code></pre><p>fix2:后续思考</p>
-<p><img src="/assets/images/farigui/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
-<p>其实我们一对比发现虽然居中没问题了 但是实际上这个GImage还是需要进行大小调整的</p>
-<p>参考之前项目里面NGUI的分辨率调整</p>
-<pre><code>int ManualWidth = 1280;
-int ManualHeight = 720;
-
-if (System.Convert.ToSingle(Screen.height) / Screen.width 
-  &gt; System.Convert.ToSingle(ManualHeight) / ManualWidth)
-    ManualHeight = 
-        Mathf.RoundToInt(System.Convert.ToSingle(ManualWidth) / Screen.width * Screen.height);
-
-
-GRoot.inst
-    .SetContentScaleFactor
-        (ManualWidth, ManualHeight, UIContentScaler.ScreenMatchMode.MatchHeight);
-</code></pre><p><img src="/assets/images/farigui/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Hexo/">Hexo</a>
+
+            </div>
         
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/"  data-tooltip="FariGUI 屏幕分辨率研究笔记">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/08/关卡Loading/" data-tooltip="制作平滑的关卡loading">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            
+        
+    </div>
+</article>
+
 
 
                 <footer id="footer" class="main-content-wrap">
@@ -318,6 +347,83 @@ GRoot.inst
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/"  data-tooltip="FariGUI 屏幕分辨率研究笔记">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/08/关卡Loading/" data-tooltip="制作平滑的关卡loading">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/09/Hexo_Blog/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         
@@ -451,6 +557,8 @@ GRoot.inst
         <!--SCRIPTS-->
 <script src="/assets/js/script-taaobz4ueybn54ikf9gtu3wlm8tpgzjkwfknygrtitquljbwokv26p56moto.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
 

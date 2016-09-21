@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>标签: FariGUI - 人活着是场修行</title>
+    <title>分类: Unity - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
@@ -14,7 +14,7 @@
     <meta name="description" content="生命不息，奋斗不止">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="人活着是场修行">
-<meta property="og:url" content="http://yoursite.com/tags/FariGUI/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/Unity/index.html">
 <meta property="og:site_name" content="人活着是场修行">
 <meta property="og:description" content="生命不息，奋斗不止">
 <meta name="twitter:card" content="summary">
@@ -300,6 +300,80 @@ GRoot.inst
         
     </article>
     
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/08/关卡Loading/">
+                            制作平滑的关卡loading
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-08T21:47:49+08:00">
+	
+		    2016-07-08
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/Unity/">Unity</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
+<pre><code>private IEnumerator StartLoading_4() {
+    int displayProgress = 0;
+    int toProgress = 0;
+    AsyncOperation op = Application.LoadLevelAsync(1);
+    op.allowSceneActivation = false;
+    while(op.progress &lt; 0.9f) {
+        toProgress = (int)op.progress * 100;
+        while(displayProgress &lt; toProgress) {
+            ++displayProgress;
+            SetLoadingPercentage(displayProgress);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    toProgress = 100;
+    while(displayProgress &lt; toProgress){
+        ++displayProgress;
+        SetLoadingPercentage(displayProgress);
+        yield return new WaitForEndOfFrame();
+    }
+    op.allowSceneActivation = true;
+}
+</code></pre><p><a href="http://www.jjcat.me/2014/06/22/Unity3d%E4%B8%AD%E5%88%B6%E4%BD%9CLoading%E5%9C%BA%E6%99%AF%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Unity3d中制作Loading场景进度条所遇到的问题</a></p>
+<p><a href="http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html" target="_blank" rel="external">http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html</a></p>
+<p><a href="http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html" target="_blank" rel="external">http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html</a></p>
+<p><a href="http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html" target="_blank" rel="external">http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/07/08/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
+                                注释和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -309,6 +383,7 @@ GRoot.inst
 </div>
 
 </section>
+
 
 
                 <footer id="footer" class="main-content-wrap">

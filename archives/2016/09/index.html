@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="null">
+<html lang="ru">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>Archives: 2016/9 - 人活着是场修行</title>
+    <title>归档: 2016/9 - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
@@ -25,6 +25,8 @@
         
     
     
+        <meta property="og:image" content="http://yoursite.com/assets/images/icon.png"/>
+    
     
     
     
@@ -41,6 +43,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -53,6 +59,8 @@
                 href="#about">
         
         
+            <img class="header-picture" src="/assets/images/icon.png"/>
+        
         </a>
     
 </header>
@@ -60,8 +68,23 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                        <img class="sidebar-profile-picture" src="/assets/images/icon.png"/>
+                </a>
+                <h4 class="sidebar-profile-name">张洁勇</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>生活在未来，希望在现在</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -74,7 +97,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                        <span class="sidebar-button-desc">Home</span>
+                        <span class="sidebar-button-desc">首页</span>
                     </a>
             </li>
             
@@ -86,7 +109,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">分类</span>
                     </a>
             </li>
             
@@ -98,7 +121,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">标签</span>
                     </a>
             </li>
             
@@ -110,7 +133,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                        <span class="sidebar-button-desc">Archives</span>
+                        <span class="sidebar-button-desc">归档</span>
                     </a>
             </li>
             
@@ -122,7 +145,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">搜索</span>
                     </a>
             </li>
             
@@ -134,7 +157,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                        <span class="sidebar-button-desc">About</span>
+                        <span class="sidebar-button-desc">关于</span>
                     </a>
             </li>
             
@@ -186,9 +209,15 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2016-09-21T21:28:46+08:00">
 	
-		    Sep 21, 2016
+		    2016-09-21
     	
     </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/Unity/">Unity</a>
+
+
     
 </div>
 
@@ -216,7 +245,7 @@
     GRoot.inst.AddChild(mainView);
 }
 </code></pre><p>但是为什么实际运行的时候在这个分辨率的时候 方块没有垂直和水平中线呢？</p>
-<p><img src="assets/images/farigui/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
+<p><img src="/assets/images/farigui/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
 <p>fix1:容器需要铺满</p>
 <pre><code>void Start () 
 {
@@ -238,7 +267,7 @@
         + &quot;  GRoot.inst.height &quot; + GRoot.inst.height);
 }
 </code></pre><p>fix2:后续思考</p>
-<p><img src="assets/images/farigui/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
+<p><img src="/assets/images/farigui/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
 <p>其实我们一对比发现虽然居中没问题了 但是实际上这个GImage还是需要进行大小调整的</p>
 <p>参考之前项目里面NGUI的分辨率调整</p>
 <pre><code>int ManualWidth = 1280;
@@ -253,7 +282,7 @@ if (System.Convert.ToSingle(Screen.height) / Screen.width
 GRoot.inst
     .SetContentScaleFactor
         (ManualWidth, ManualHeight, UIContentScaler.ScreenMatchMode.MatchHeight);
-</code></pre><p><img src="assets/images/farigui/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
+</code></pre><p><img src="/assets/images/farigui/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
 
                     
                         
@@ -261,145 +290,7 @@ GRoot.inst
                     
                         <p>
                             <a href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/09/20/Hexo_Blog/">
-                            Build Blog With Hexo On Github
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
-	
-		    Sep 20, 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="Install-node-js-with-nvm"><a href="#Install-node-js-with-nvm" class="headerlink" title="Install node.js with nvm"></a>Install node.js with nvm</h2><p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></p>
-<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-
-nvm install stable
-</code></pre><h2 id="Install-hero"><a href="#Install-hero" class="headerlink" title="Install hero"></a>Install hero</h2><p><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a><br><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">hexo docs</a></p>
-<pre><code>npm config set registry http://registry.cnpmjs.org 
-or
-npm install -g hexo-cli --registry=http://r.cnpmjs.org 
-
-$ hexo init &lt;folder&gt;
-$ cd &lt;folder&gt;
-$ npm install
-</code></pre><p>常用命令</p>
-<pre><code>hexo clean
-
-hexo generate
-
-hexo deploy
-</code></pre><p>Deploy With Git</p>
-<pre><code>$ npm install hexo-deployer-git --save
-
-deploy:
-    type: git
-    repo: &lt;repository url&gt;
-    branch: [branch]
-</code></pre><p> _config.xml 严格的格式要求<br>注意 : 后面有个空格 </p>
-<p>博客地址: <a href="https://daaoling.github.io/" target="_blank" rel="external">https://daaoling.github.io/</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">Hexo常见问题解决方案</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/22498474" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22498474</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/09/20/Hexo_Blog/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/09/20/关卡Loading/">
-                            制作平滑的关卡loading
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
-	
-		    Sep 20, 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
-<pre><code>private IEnumerator StartLoading_4() {
-    int displayProgress = 0;
-    int toProgress = 0;
-    AsyncOperation op = Application.LoadLevelAsync(1);
-    op.allowSceneActivation = false;
-    while(op.progress &lt; 0.9f) {
-        toProgress = (int)op.progress * 100;
-        while(displayProgress &lt; toProgress) {
-            ++displayProgress;
-            SetLoadingPercentage(displayProgress);
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
-    toProgress = 100;
-    while(displayProgress &lt; toProgress){
-        ++displayProgress;
-        SetLoadingPercentage(displayProgress);
-        yield return new WaitForEndOfFrame();
-    }
-    op.allowSceneActivation = true;
-}
-</code></pre><p><a href="http://www.jjcat.me/2014/06/22/Unity3d%E4%B8%AD%E5%88%B6%E4%BD%9CLoading%E5%9C%BA%E6%99%AF%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Unity3d中制作Loading场景进度条所遇到的问题</a></p>
-<p><a href="http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html" target="_blank" rel="external">http://answers.unity3d.com/questions/934354/loadlevelasync-stops-at-90.html</a></p>
-<p><a href="http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html" target="_blank" rel="external">http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html</a></p>
-<p><a href="http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html" target="_blank" rel="external">http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/09/20/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                注释和共享
                             </a>
                         </p>
                     
@@ -413,7 +304,7 @@ deploy:
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="pagination-number">第 1 页 共 1 页</li>
     </ul>
 </div>
 
@@ -433,22 +324,28 @@ deploy:
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/icon.png"/>
+        
             <h4 id="about-card-name">张洁勇</h4>
         
-            <h5 id="about-card-bio"><p>author.bio</p>
+            <h5 id="about-card-bio"><p>生活在未来，希望在现在</p>
 </h5>
         
         
             <h5 id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>游戏开发工程师</p>
 
             </h5>
         
@@ -478,7 +375,7 @@ deploy:
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">没有找到文章</div>
             <div class="results">
                 
                 <div class="media">
@@ -490,7 +387,7 @@ deploy:
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Sep 21, 2016
+                                    21 сент. 2016 г.
                                 
                             </span>
                         </span>
@@ -503,13 +400,13 @@ deploy:
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/Hexo_Blog/">
+                        <a class="link-unstyled" href="http://yoursite.com/2016/07/09/Hexo_Blog/">
                             <h3 class="media-heading">Build Blog With Hexo On Github</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Sep 20, 2016
+                                    9 июля 2016 г.
                                 
                             </span>
                         </span>
@@ -522,13 +419,13 @@ deploy:
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/关卡Loading/">
+                        <a class="link-unstyled" href="http://yoursite.com/2016/07/08/关卡Loading/">
                             <h3 class="media-heading">制作平滑的关卡loading</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Sep 20, 2016
+                                    8 июля 2016 г.
                                 
                             </span>
                         </span>
@@ -542,10 +439,10 @@ deploy:
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                3 posts found
+                data-message-zero="没有找到文章"
+                data-message-one="找到 1 篇文章"
+                data-message-other="找到 {n} 篇文章">
+                找到 3 篇文章
             </p>
         </div>
     </div>
