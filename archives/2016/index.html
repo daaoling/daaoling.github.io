@@ -6,17 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>Archives: 2016 - 人活着是场修行</title>
+    <title>Archivos: 2016 - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
     
-    <meta property="og:type" content="blog">
+    <meta name="description" content="生命不息，奋斗不止">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="人活着是场修行">
 <meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
 <meta property="og:site_name" content="人活着是场修行">
+<meta property="og:description" content="生命不息，奋斗不止">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="人活着是场修行">
+<meta name="twitter:description" content="生命不息，奋斗不止">
     
     
         
@@ -71,7 +74,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                        <span class="sidebar-button-desc">Home</span>
+                        <span class="sidebar-button-desc">Inicio</span>
                     </a>
             </li>
             
@@ -83,7 +86,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">Categorías</span>
                     </a>
             </li>
             
@@ -95,7 +98,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">Etiquetas</span>
                     </a>
             </li>
             
@@ -107,7 +110,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                        <span class="sidebar-button-desc">Archives</span>
+                        <span class="sidebar-button-desc">Archivos</span>
                     </a>
             </li>
             
@@ -119,7 +122,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">Buscar</span>
                     </a>
             </li>
             
@@ -131,7 +134,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                        <span class="sidebar-button-desc">About</span>
+                        <span class="sidebar-button-desc">Acerca de</span>
                     </a>
             </li>
             
@@ -175,15 +178,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2016/09/20/Hexo_Blog/">
-                            Build Blog With Hexo On Github
+                        <a class="link-unstyled" href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/">
+                            FariGUI 屏幕分辨率研究笔记
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
+    <time itemprop="datePublished" datetime="2016-09-21T21:28:46+08:00">
 	
-		    Sep 20, 2016
+		    21 Sep 2016
     	
     </time>
     
@@ -192,7 +195,107 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Build-Blog-With-Hexo-On-Github"><a href="#Build-Blog-With-Hexo-On-Github" class="headerlink" title="Build Blog With Hexo On Github"></a>Build Blog With Hexo On Github</h1><h2 id="Install-node-js-with-nvm"><a href="#Install-node-js-with-nvm" class="headerlink" title="Install node.js with nvm"></a>Install node.js with nvm</h2><p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></p>
+                    <p>设计分辨率1280 * 720 容器 一个 GImage 关联容器垂直中线，水平中线</p>
+<p><img src="./assets/images/屏幕分辨率适配1.png" alt="屏幕分辨率适配1"></p>
+<p>实际分辨率960 * 640</p>
+<p>ScreenMatchMode == MatchHeight</p>
+<pre><code>得出
+    GRoot.inst.width = 1080
+    GRoot.inst.height = 720 
+</code></pre><p>代码如下</p>
+<pre><code>void Start () 
+{
+    UIPackage.AddPackage(&quot;UI/test&quot;);
+
+    Application.targetFrameRate = 60;
+    GRoot.inst
+        .SetContentScaleFactor
+            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+
+    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
+    GRoot.inst.AddChild(mainView);
+}
+</code></pre><p>但是为什么实际运行的时候在这个分辨率的时候 方块没有垂直和水平中线呢？</p>
+<p><img src="./pic/屏幕分辨率适配2.png" alt="屏幕分辨率适配2"></p>
+<p>fix1:容器需要铺满</p>
+<pre><code>void Start () 
+{
+    UIPackage.AddPackage(&quot;UI/test&quot;);
+
+    Application.targetFrameRate = 60;
+    GRoot.inst
+        .SetContentScaleFactor
+            (1280, 720, UIContentScaler.ScreenMatchMode.MatchHeight);
+
+
+    GComponent mainView = UIPackage.CreateObject(&quot;test&quot;, &quot;Main&quot;).asCom;
+    mainView.SetSize(GRoot.inst.width, GRoot.inst.height);
+    mainView.AddRelation(GRoot.inst, RelationType.Size);
+    GRoot.inst.AddChild(mainView);
+
+    Debug.Log(
+        &quot;  GRoot.inst.width  &quot; + GRoot.inst.width
+        + &quot;  GRoot.inst.height &quot; + GRoot.inst.height);
+}
+</code></pre><p>fix2:后续思考</p>
+<p><img src="./pic/屏幕分辨率适配3.png" alt="屏幕分辨率适配3"></p>
+<p>其实我们一对比发现虽然居中没问题了 但是实际上这个GImage还是需要进行大小调整的</p>
+<p>参考之前项目里面NGUI的分辨率调整</p>
+<pre><code>int ManualWidth = 1280;
+int ManualHeight = 720;
+
+if (System.Convert.ToSingle(Screen.height) / Screen.width 
+  &gt; System.Convert.ToSingle(ManualHeight) / ManualWidth)
+    ManualHeight = 
+        Mathf.RoundToInt(System.Convert.ToSingle(ManualWidth) / Screen.width * Screen.height);
+
+
+GRoot.inst
+    .SetContentScaleFactor
+        (ManualWidth, ManualHeight, UIContentScaler.ScreenMatchMode.MatchHeight);
+</code></pre><p><img src="./pic/屏幕分辨率适配4.png" alt="屏幕分辨率适配4"></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/09/21/FariGUI 屏幕分辨率研究笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/09/20/Hexo_Blog/">
+                            Build Blog With Hexo On Github
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
+	
+		    20 Sep 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="Install-node-js-with-nvm"><a href="#Install-node-js-with-nvm" class="headerlink" title="Install node.js with nvm"></a>Install node.js with nvm</h2><p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></p>
 <pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 
 nvm install stable
@@ -219,7 +322,6 @@ deploy:
     branch: [branch]
 </code></pre><p> _config.xml 严格的格式要求<br>注意 : 后面有个空格 </p>
 <p>博客地址: <a href="https://daaoling.github.io/" target="_blank" rel="external">https://daaoling.github.io/</a></p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/all-archives/" target="_blank" rel="external">http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/all-archives/</a><br><a href="http://litten.github.io/tags/%E6%9D%82%E8%B0%88/" target="_blank" rel="external">http://litten.github.io/tags/%E6%9D%82%E8%B0%88/</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">Hexo常见问题解决方案</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/22498474" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22498474</a></p>
 
@@ -229,48 +331,7 @@ deploy:
                     
                         <p>
                             <a href="/2016/09/20/Hexo_Blog/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/09/20/help/">
-                            help
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
-	
-		    Sep 20, 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/09/20/help/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Comentar y compartir
                             </a>
                         </p>
                     
@@ -295,7 +356,7 @@ deploy:
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
 	
-		    Sep 20, 2016
+		    20 Sep 2016
     	
     </time>
     
@@ -338,7 +399,7 @@ deploy:
                     
                         <p>
                             <a href="/2016/09/20/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Comentar y compartir
                             </a>
                         </p>
                     
@@ -352,7 +413,7 @@ deploy:
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="pagination-number">página 1 de 1</li>
     </ul>
 </div>
 
@@ -417,19 +478,19 @@ deploy:
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">no se encontraron artículos</div>
             <div class="results">
                 
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/Hexo_Blog/">
-                            <h3 class="media-heading">Build Blog With Hexo On Github</h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/21/FariGUI 屏幕分辨率研究笔记/">
+                            <h3 class="media-heading">FariGUI 屏幕分辨率研究笔记</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Sep 20, 2016
+                                    Sep 21, 2016
                                 
                             </span>
                         </span>
@@ -442,8 +503,8 @@ deploy:
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
-                            <h3 class="media-heading">help</h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/Hexo_Blog/">
+                            <h3 class="media-heading">Build Blog With Hexo On Github</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
@@ -481,10 +542,10 @@ deploy:
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                3 posts found
+                data-message-zero="no se encontraron artículos"
+                data-message-one="1 artículo encontrado"
+                data-message-other="{n} artículos encontrados">
+                3 artículos encontrados
             </p>
         </div>
     </div>
