@@ -215,15 +215,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2016/07/08/关卡Loading/">
-                            (no title)
+                        <a class="link-unstyled" href="/2016/09/20/关卡Loading/">
+                            制作平滑的关卡loading
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-07-08T21:47:49+08:00">
+    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
 	
-		    Jul 08, 2016
+		    Sep 20, 2016
     	
     </time>
     
@@ -232,7 +232,7 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="制作平滑的关卡loading"><a href="#制作平滑的关卡loading" class="headerlink" title="制作平滑的关卡loading"></a>制作平滑的关卡loading</h1><p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
+                    <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
 <pre><code>private IEnumerator StartLoading_4() {
     int displayProgress = 0;
     int toProgress = 0;
@@ -265,7 +265,7 @@
                     
                     
                         <p>
-                            <a href="/2016/07/08/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2016/09/20/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
                                 Comment and share
                             </a>
                         </p>
@@ -319,6 +319,12 @@
             </h5>
         
         
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                杭州
+            </h5>
+        
     </div>
 </div>
 
@@ -344,13 +350,13 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/07/08/关卡Loading/">
-                            <h3 class="media-heading"></h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
+                            <h3 class="media-heading">help</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Jul 8, 2016
+                                    Sep 20, 2016
                                 
                             </span>
                         </span>
@@ -363,8 +369,8 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
-                            <h3 class="media-heading">help</h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/关卡Loading/">
+                            <h3 class="media-heading">制作平滑的关卡loading</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">

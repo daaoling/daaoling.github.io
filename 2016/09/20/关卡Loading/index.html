@@ -6,17 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="人活着是场修行">
-    <title>Archives: 2016/7 - 人活着是场修行</title>
+    <title>制作平滑的关卡loading - 人活着是场修行</title>
     <meta name="author" content="张洁勇">
     
     
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="人活着是场修行">
-<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
+    <meta name="description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="制作平滑的关卡loading">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/关卡Loading/index.html">
 <meta property="og:site_name" content="人活着是场修行">
+<meta property="og:description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
+<meta property="og:updated_time" content="2016-09-21T12:38:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人活着是场修行">
+<meta name="twitter:title" content="制作平滑的关卡loading">
+<meta name="twitter:description" content="原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。所以代码改为如下。当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，然后设置AsyncOperation.allowSceneActivation为t">
     
     
         
@@ -39,7 +43,7 @@
 
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">人活着是场修行</a>
@@ -57,7 +61,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     <div class="sidebar-container">
         
         
@@ -161,38 +165,34 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/07/08/关卡Loading/">
-                            (no title)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-07-08T21:47:49+08:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            制作平滑的关卡loading
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-09-20T22:29:01+08:00">
 	
-		    Jul 08, 2016
+		    Sep 20, 2016
     	
     </time>
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="制作平滑的关卡loading"><a href="#制作平滑的关卡loading" class="headerlink" title="制作平滑的关卡loading"></a>制作平滑的关卡loading</h1><p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>原来把allowSceneActivation设置为false后，Unity就只会加载场景到90%，<br>剩下的10%要等到allowSceneActivation设置为true后才加载，这不得不说是一个坑。<br>所以代码改为如下。<br>当AsyncOperation.progress到达0.9后，就直接把进度条的数值更新为100%，<br>然后设置AsyncOperation.allowSceneActivation为ture，让Unity继续加载未完成的场景。</p>
 <pre><code>private IEnumerator StartLoading_4() {
     int displayProgress = 0;
     int toProgress = 0;
@@ -220,31 +220,70 @@
 <p><a href="http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html" target="_blank" rel="external">http://answers.unity3d.com/questions/377666/how-do-you-use-asyncoperationallowsceneactivation.html</a></p>
 <p><a href="http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html" target="_blank" rel="external">http://unity3d-book.blogspot.jp/2014/03/unity3d-preloading-scenes-with.html</a></p>
 
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2016/07/08/关卡Loading/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/20/help/"  data-tooltip="help">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
         
-        
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            
+        
+    </div>
+</article>
 
 
 
@@ -255,6 +294,83 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/20/help/"  data-tooltip="help">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/关卡Loading/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         
@@ -279,6 +395,12 @@
 
             </h5>
         
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                杭州
+            </h5>
         
     </div>
 </div>
@@ -305,13 +427,13 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/07/08/关卡Loading/">
-                            <h3 class="media-heading"></h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
+                            <h3 class="media-heading">help</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    Jul 8, 2016
+                                    Sep 20, 2016
                                 
                             </span>
                         </span>
@@ -324,8 +446,8 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/help/">
-                            <h3 class="media-heading">help</h3>
+                        <a class="link-unstyled" href="http://yoursite.com/2016/09/20/关卡Loading/">
+                            <h3 class="media-heading">制作平滑的关卡loading</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
@@ -357,6 +479,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-taaobz4ueybn54ikf9gtu3wlm8tpgzjkwfknygrtitquljbwokv26p56moto.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
 
